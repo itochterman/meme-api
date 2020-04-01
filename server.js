@@ -9,7 +9,6 @@ var corsOptions = {
   origin: "http://localhost:3000"
 };
 
-
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -18,8 +17,8 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./app/models");
-db.sequelize.sync();
+const db = require("./models");
+// db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
@@ -28,8 +27,8 @@ app.get("/", (req, res) => {
 
 // set port, listen for requests
 
-require("./app/routes/poem.routes")(app);
-console.log(app.response)
+require("./routes/poem.routes")(app);
+console.log(app.response);
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
