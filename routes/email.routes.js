@@ -33,7 +33,7 @@ module.exports = (app) => {
     console.log("REQUEST: ", req.body);
     var mail = {
       from: firstName,
-      to: "itochterman@gmail.com",
+      to: creds.USER,
       subject: "New Message from Contact Form",
       text: content,
     };
