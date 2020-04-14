@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 var nodemailer = require("nodemailer");
 const creds = require("./config/config.js");
+const path = require("path");
 
 const app = express();
 
@@ -18,11 +19,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./models");
-app.get("/", (req, res) => {
-  res.json({ message: "hi der." });
+
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 require("./routes/email.routes")(app);
-
 require("./routes/poem.routes")(app);
 console.log(app.response);
 // const PORT = process.env.PORT || 8080;
