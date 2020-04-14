@@ -8,8 +8,8 @@ const path = require("path");
 const app = express();
 
 var corsOptions = {
-  origin: "http://104.248.10.249:8080",
-  origin: "http://104.248.10.249:3000",
+  origin: "http://104.248.10.249:80",
+  origin: "http://isabellatochterman.com",
 };
 
 console.log(process.env.USER);
