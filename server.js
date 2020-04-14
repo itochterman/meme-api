@@ -7,8 +7,8 @@ const creds = require("./config/config.js");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081",
-  origin: "http://localhost:3000",
+  origin: "http://104.248.10.249:8080",
+  origin: "http://104.248.10.249:3000",
 };
 
 console.log(process.env.USER);
